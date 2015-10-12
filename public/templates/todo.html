@@ -1,0 +1,35 @@
+<div>
+  <div class="container">
+    
+    <div class='well'>
+      <label for="task">Thing to do: </label>
+      <input type="text" name='task' ng-model='task.task'>
+      <br/>
+      <label for="theDate"> When to do it: </label>
+      <input type="date" ng-model='task.date'>
+      <br/>
+      <button class='btn btn-default' type='button' ng-click='addTask()'>Submit</button>
+    </div>
+    <hr>
+  </div>
+  <div class='row'>
+  <table class='col-sm-12'>
+    <tr>
+      <th class='col-sm-3'>Task</th>
+      <th class='col-sm-3'>Date</th>
+      <th class='col-sm-3'>Status</th>
+    </tr>
+    <tr ng-repeat='savedTask in taskArr track by $index'>
+   
+      <td class='col-sm-3'>{{savedTask.task}}</td>
+      <td class='col-sm-3'>{{savedTask.date | date}}</td>
+      <td class='col-sm-3' ng-show='savedTask.isComplete'><button ng-click='taskDone()'>To do</button></td>
+      <td class='col-sm-3' ng-show='!savedTask.isComplete'><button ng-click='taskDone()'>Completed</button></td>
+      
+    </tr>
+  </table>
+  </div>
+  
+
+
+</div>
